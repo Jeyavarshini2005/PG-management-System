@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PG Booking</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <h1 class="title">🏠 Find Your Perfect PG</h1>
+    <nav class="navbar">
+      <a href="index.html" class="active">Home</a>
+      <a href="reviews.html">Reviews</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Book. Stay. Relax.</h2>
+    <p>Discover comfortable and affordable PGs near you with just one click.</p>
+  </section>
+
+  <section class="pg-list">
+    <h2 class="section-title">✨ Available PGs</h2>
+
+    <div class="pg-container">
+      <div class="pg-card">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600" alt="Sunrise PG">
+        <h3>Sunrise PG</h3>
+        <p>📍 Chennai</p>
+        <p>💰 ₹8,000/month</p>
+        <button onclick="viewDetails('Sunrise PG', 'Chennai', '₹8,000/month')">View Details</button>
+      </div>
+
+      <div class="pg-card">
+        <img src="https://images.unsplash.com/photo-1560185127-6ed189bf04bb?w=600" alt="Lakeview PG">
+        <h3>Lakeview PG</h3>
+        <p>📍 Bangalore</p>
+        <p>💰 ₹9,500/month</p>
+        <button onclick="viewDetails('Lakeview PG', 'Bangalore', '₹9,500/month')">View Details</button>
+      </div>
+
+      <div class="pg-card">
+        <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=600" alt="CityNest PG">
+        <h3>CityNest PG</h3>
+        <p>📍 Hyderabad</p>
+        <p>💰 ₹7,500/month</p>
+        <button onclick="viewDetails('CityNest PG', 'Hyderabad', '₹7,500/month')">View Details</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 PG Booking | Made with ❤️ by Diyu</p>
+  </footer>
+
+  <!-- 🏠 PG Details Popup -->
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <span class="close" onclick="closePopup()">&times;</span>
+      <h2 id="popupName"></h2>
+      <p id="popupLocation"></p>
+      <p id="popupPrice"></p>
+      <button id="bookBtn" onclick="openForm()">Book PG</button>
+    </div>
+  </div>
+
+  <!-- 🧾 Customer Form Popup -->
+  <div id="formPopup" class="popup">
+    <div class="popup-content">
+      <span class="close" onclick="closeForm()">&times;</span>
+      <h2>🧍 Customer Details</h2>
+      <form id="bookingForm" onsubmit="submitForm(event)">
+        <input type="text" id="name" placeholder="Full Name" required />
+        <input type="number" id="age" placeholder="Age" required />
+        <input type="tel" id="phone" placeholder="Phone Number" required />
+        <button type="submit">Book Now</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ✅ Success Popup -->
+  <div id="successPopup" class="popup">
+    <div class="popup-content success">
+      <h2>🎉 Booking Successful!</h2>
+      <p>Your PG has been booked successfully!</p>
+      <button onclick="closeSuccess()">Close</button>
+    </div>
+  </div>
+
+  <script>
+    let currentPg = {};
+
+    // Open PG details popup
+    function viewDetails(name, location, price) {
+      currentPg = { name, location, price };
+      document.getElementById('popupName').textContent = name;
+      document.getElementById('popupLocation').textContent = "📍 " + location;
+      document.getElementById('popupPrice').textContent = "💰 " + price;
+      document.getElementById('popup').style.display = "flex";
+    }
+
+    function closePopup() {
+      document.getElementById('popup').style.display = "none";
+    }
+
+    // Open customer form popup
+    function openForm() {
+      closePopup();
+      document.getElementById('formPopup').style.display = "flex";
+    }
+
+    function closeForm() {
+      document.getElementById('formPopup').style.display = "none";
+    }
+
+    // Handle form submission
+    function submitForm(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value;
+      const age = document.getElementById('age').value;
+      const phone = document.getElementById('phone').value;
+
+      const bookingData = {
+        customerName: name,
+        customerAge: age,
+        customerPhone: phone,
+        pgBooked: currentPg
+      };
+
+      console.log("Booking Details:", bookingData);
+
+      // Store temporarily in localStorage (just to simulate backend)
+      localStorage.setItem("lastBooking", JSON.stringify(bookingData));
+
+      closeForm();
+      document.getElementById('successPopup').style.display = "flex";
+    }
+
+    function closeSuccess() {
+      document.getElementById('successPopup').style.display = "none";
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+

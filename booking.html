@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Your PG</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <h1 class="title">🏠 Find Your Perfect PG</h1>
+    <nav class="navbar">
+      <a href="index.html">Home</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <section class="booking-section">
+    <h2 class="section-title">📝 PG Booking Form</h2>
+    <p class="section-subtitle">Please fill in your details and preferences below to book your stay.</p>
+
+    <form id="bookingForm" class="booking-form">
+      <label>Full Name:</label>
+      <input type="text" id="name" placeholder="Enter your name" required />
+
+      <label>Email:</label>
+      <input type="email" id="email" placeholder="Enter your email" required />
+
+      <label>Phone Number:</label>
+      <input type="tel" id="phone" placeholder="Enter your number" required />
+
+      <label>Preferred Room Type:</label>
+      <select id="roomType" required>
+        <option value="">Select Room Type</option>
+        <option value="Single Room">Single Room</option>
+        <option value="Double Sharing">Double Sharing</option>
+        <option value="Triple Sharing">Triple Sharing</option>
+      </select>
+
+      <label>Stay Duration:</label>
+      <select id="duration" required>
+        <option value="">Select Duration</option>
+        <option value="1 Month">1 Month</option>
+        <option value="3 Months">3 Months</option>
+        <option value="6 Months">6 Months</option>
+        <option value="1 Year">1 Year</option>
+      </select>
+
+      <label>Additional Preferences:</label>
+      <textarea id="preferences" placeholder="Mention food type, AC/Non-AC, etc."></textarea>
+
+      <button type="submit" class="book-btn">Confirm Booking</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 PG Booking | Made with 💖 by Diyu</p>
+  </footer>
+
+  <script>
+    document.getElementById("bookingForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      window.location.href = "booking-success.html";
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+C<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PG Reviews</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <h1 class="title">🏠 Find Your Perfect PG</h1>
+    <nav class="navbar">
+      <a href="index.html">Home</a>
+      <a href="reviews.html" class="active">Reviews</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <section class="review-section">
+    <h2 class="section-title">⭐ PG Reviews</h2>
+
+    <div class="review-container" id="reviewContainer">
+      <div class="review-card">
+        <h3>Sunrise PG - Chennai</h3>
+        <p>"The rooms are clean and the owner is friendly. Totally worth it!"</p>
+        <span>— Aarthi</span>
+      </div>
+
+      <div class="review-card">
+        <h3>Lakeview PG - Bangalore</h3>
+        <p>"The lake view every morning is the best thing about this place."</p>
+        <span>— Ragavi</span>
+      </div>
+    </div>
+
+    <div class="add-review">
+      <h3>Add Your Review</h3>
+      <input type="text" id="pgName" placeholder="PG Name" />
+      <textarea id="reviewText" placeholder="Write your review here..."></textarea>
+      <input type="text" id="reviewerName" placeholder="Your Name" />
+      <button onclick="addReview()">Submit Review</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 PG Booking | Made with ❤️ by Diyu</p>
+  </footer>
+
+  <script>
+    function addReview() {
+      const name = document.getElementById("pgName").value.trim();
+      const text = document.getElementById("reviewText").value.trim();
+      const user = document.getElementById("reviewerName").value.trim();
+
+      if (!name || !text || !user) {
+        alert("Please fill all fields before submitting!");
+        return;
+      }
+
+      const container = document.getElementById("reviewContainer");
+      const newReview = document.createElement("div");
+      newReview.classList.add("review-card");
+      newReview.innerHTML = `
+        <h3>${name}</h3>
+        <p>"${text}"</p>
+        <span>— ${user}</span>
+      `;
+
+      container.appendChild(newReview);
+
+      // clear fields
+      document.getElementById("pgName").value = "";
+      document.getElementById("reviewText").value = "";
+      document.getElementById("reviewerName").value = "";
+
+      alert("Review added successfully!");
+    }
+  </script>
+</body>
+</html>
+

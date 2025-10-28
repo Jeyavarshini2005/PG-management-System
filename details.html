@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PG Details</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <h1 class="title">PG Details</h1>
+    <nav class="navbar">
+      <a href="index.html">Home</a>
+      <a href="reviews.html">Reviews</a>
+    </nav>
+  </header>
+
+  <section class="pg-details">
+    <h2 id="pgName"></h2>
+    <p id="pgLocation"></p>
+    <p id="pgPrice"></p>
+
+    <button id="bookBtn" class="book-btn">Book PG</button>
+  </section>
+
+  <footer>
+    <p>© 2025 PG Booking | Made with ❤️ by Diyu</p>
+  </footer>
+
+  <script>
+    // Fetch the query parameters (PG details)
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get('name');
+    const location = urlParams.get('location');
+    const price = urlParams.get('price');
+
+    // Display them
+    document.getElementById('pgName').textContent = name;
+    document.getElementById('pgLocation').textContent = "📍 " + location;
+    document.getElementById('pgPrice').textContent = "💰 " + price;
+
+    // When Book PG is clicked → Go to success page
+    document.getElementById('bookBtn').addEventListener('click', () => {
+      window.location.href = "success.html";
+    });
+  </script>
+</body>
+</html>
+

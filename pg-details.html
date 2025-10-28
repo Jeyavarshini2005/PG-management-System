@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PG Details</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Skyline PG</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="pg-details">
+    <h2>About Skyline PG</h2>
+    <p>Located in the heart of the city, Skyline PG offers cozy rooms, free WiFi, laundry services, and healthy meals.</p>
+    <p>Price: ₹8000/month | Type: Shared/Single Rooms | Available for: Girls</p>
+
+    <button id="bookBtn" class="btn">Book PG</button>
+
+    <form id="bookingForm" class="booking-form hidden">
+      <h3>Booking Form</h3>
+      <label>Name:</label>
+      <input type="text" placeholder="Enter your name" required />
+
+      <label>Email:</label>
+      <input type="email" placeholder="Enter your email" required />
+
+      <label>Room Type:</label>
+      <select>
+        <option>Single</option>
+        <option>Double Sharing</option>
+        <option>Triple Sharing</option>
+      </select>
+
+      <label>Duration (months):</label>
+      <input type="number" min="1" placeholder="Enter months" required />
+
+      <button type="submit" class="btn">Submit Booking</button>
+    </form>
+  </section>
+</body>
+</html>
